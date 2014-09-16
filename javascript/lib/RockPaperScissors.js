@@ -1,21 +1,16 @@
-function Player(name) {
-  this.name = name;
-}
-
 function Game(player1, player2) {
   this.player1 = player1;
   this.player2 = player2;
 }
 
 Game.prototype.PAIRS = {
-  rock:     { beats: ['lizard', 'scissors'] },
-  paper:    { beats: ['rock', 'spock']},
-  scissors: { beats: ['paper','lizzard']}
+  rock:     { scissors: 'crushes', lizard: 'squashes' },
+  paper:    { rock: 'covers', spock: 'disproves' },
+  scissors: { paper: 'cuts', lizard: 'decapitates' },
+  lizard:   { spock: 'poisons', paper: 'eats' },
+  spock:    { rock: 'vaporises', scissors: 'smashes' }
 };
 
-Player.prototype.picks = function(pick) {
-  this.pick = pick;
-};
 
 Game.prototype.winner = function() {
 	if(this.player1.pick === this.player2.pick)
@@ -30,6 +25,10 @@ Game.prototype.winner = function() {
 
 Game.prototype.draw = function() {
 	if(PAIRS[this.player1.pick]['beats']  === [this.player2.pick]['beats']) {
-		return [null, null, null], null, null;
+		return [null, null, null, null, null];
 	}
+};
+
+Game.prototype.winningMessage = function(first_argument) {
+	// body...
 };

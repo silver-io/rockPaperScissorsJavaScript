@@ -1,11 +1,11 @@
-describe("Rock-Paper-Scissors", function() {
+describe("Rock-Paper-Scissors-Lizzard-Spock", function() {
   var player1, player2, game;
 
   beforeEach(function() {
 
     player1 = new Player('Alex');
     player2 = new Player('Bob');
-    game = new Game(player1, player2);
+    game    = new Game(player1, player2);
 
   });
 
@@ -141,4 +141,49 @@ describe("Rock-Paper-Scissors", function() {
 
   });
 
+  describe('victory messages', function() {
+
+    it("should return the winner's name, the verb and the loser's name", function() {
+      player1.picks('scissors');
+      player2.picks('rock');
+      expect(game.winningMessage()).toEqual('Alex crushes Mario');
+    });
+
+  });
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
